@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { prismaClient } from "@/lib/prisma";
+import Link from "next/link";
 import React from "react";
 
 // you can do like also :- async( {params} : {params:Promise<{id:string}>} )
@@ -26,7 +27,7 @@ const SnippetDetailPage : React.FC<SnippetDetailsProps> = async ({ params}) => {
       <div className="flex items-center justify-between">
         <h1 className="font-bold text-xl">{snippet.title} </h1>
         <div className="flex items-center gap-2">
-          <Button>Edit</Button>
+          <Link href={`/snippet/${snippet.id}/edit`}><Button>Edit</Button></Link>
           <Button variant={'destructive'}>Delete</Button>
         </div>        
       </div>
