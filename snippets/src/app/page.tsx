@@ -23,7 +23,7 @@ export default async function Home() {
           className="flex items-center justify-between bg-gray-200 p-2 rounded-md my-2 "
         >
           <h1>{items.title}</h1>
-          <Link href={"/snippet/${items.id}"}>
+          <Link href={`/snippet/${items.id}`}>
             <Button variant={"link"}>View</Button>
           </Link>
         </div>
