@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -7,7 +8,8 @@ export default function Home() {
       <h1 className="font-bold text-4xl">Home</h1>
       <div className="flex items-center justify-between">
         <h1>Snippets</h1>
-        <Button>New</Button>
+        <Link href={"/snippet/new"}><Button>New</Button>
+        </Link>
       </div>
     </div>
   );
