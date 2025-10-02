@@ -16,6 +16,8 @@ export const saveSnippet = async (id: number, code: string) => {
     },
   });
 
+  revalidatePath(`/snippet/${id}`); // Using On-demand Caching
+
   redirect(`/snippet/${id}`);
 }
 
