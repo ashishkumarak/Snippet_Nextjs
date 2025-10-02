@@ -3,6 +3,7 @@ import { prismaClient } from "@/lib/prisma";
 import Link from "next/link";
 import React from "react";
 import * as actions from "@/actions";
+import { notFound } from "next/navigation";
 
 // you can do like also :- async( {params} : {params:Promise<{id:string}>} )
 
@@ -20,7 +21,9 @@ const SnippetDetailPage : React.FC<SnippetDetailsProps> = async ({ params}) => {
     }
   });
 
-  if(!snippet) return <h1>Snippet not found</h1> // if no data in snippet var
+  // if(!snippet) return <h1>Snippet not found...</h1> // if no data in snippet var
+
+  if(!snippet) notFound(); // you can also do like this but add not-found.tsx file
 
   const deleteSnippetActions = actions.deleteSnippet.bind(null,snippet.id);
 
