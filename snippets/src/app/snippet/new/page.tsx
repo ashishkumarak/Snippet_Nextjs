@@ -45,7 +45,8 @@ const CreateSnippetPage = () => {
         <Textarea name='code' id='code'/>
       </div>
 
-      { formDatacoming.message && <div className='p-2 bg-red-300 border-2 border-red-600 mt-2'>{formDatacoming.message}</div> }
+      { formDatacoming.message && <div className='p-2 bg-red-300 border-2 border-red-600 mt-2'>{formDatacoming.message}</div> 
+      }
       
       <Button type='submit' className='my-4'>New</Button>
     </form>
