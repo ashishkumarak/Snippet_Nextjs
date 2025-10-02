@@ -67,11 +67,16 @@ export const deleteSnippet = async(id:number) =>{
 
     // console.log("Created Snippet", snippet);
 
-    throw new Error(" OOPS something went wrong."); //throw manually error when connection failed to db so do comment the snippet.create code.
+    // throw new Error(" OOPS something went wrong."); //throw manually error when connection failed to db so do comment the snippet.create code.
 
 
-    } catch(error: any){
-      return { message: error.message}
+    } catch(error: unknown){
+      if(error instanceof Error){
+        return { message: error.message}
+      }else {
+        return {message:"Some interval servor error"}
+      }
+      
     }
         
 
