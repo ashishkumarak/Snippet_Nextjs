@@ -13,6 +13,8 @@ type SnippetDetailsProps = {
 
 const SnippetDetailPage : React.FC<SnippetDetailsProps> = async ({ params}) => {
 
+// use loading so give 2 sec delay to load page 
+await new Promise((r)=> setTimeout(r,2000));
 
   const id = parseInt((await params).id);
   const snippet = await prismaClient.snippet.findUnique({
