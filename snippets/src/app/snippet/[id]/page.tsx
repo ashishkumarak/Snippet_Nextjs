@@ -34,6 +34,8 @@ await new Promise((r)=> setTimeout(r,2000));
       <div className="flex items-center justify-between">
         <h1 className="font-bold text-xl">{snippet.title} </h1>
         <div className="flex items-center gap-2">
+          <Link href={'/'}><Button>Home</Button></Link>
+
           <Link href={`/snippet/${snippet.id}/edit`}><Button>Edit</Button></Link>
 
           <form action={deleteSnippetActions}>
