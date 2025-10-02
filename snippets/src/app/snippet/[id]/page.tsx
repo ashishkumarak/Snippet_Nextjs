@@ -53,3 +53,13 @@ await new Promise((r)=> setTimeout(r,2000));
 };
 
 export default SnippetDetailPage;
+
+
+// Make Dynamic route to Static route for handle the caching in best way
+export const generateStaticParams = async () =>{
+  const snippets = await prismaClient.snippet.findMany();
+
+  return snippets.map( (snippet)=> {
+    return { id : snippet.id.toString() }
+  }) 
+}
