@@ -3,6 +3,8 @@
 import { prismaClient } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
+import { revalidatePath } from "next/cache"; // import On-demand Caching
+
 // For Saving the Snippet
 export const saveSnippet = async (id: number, code: string) => {
   await prismaClient.snippet.update({
@@ -25,6 +27,7 @@ export const deleteSnippet = async(id:number) =>{
       id
     }
   });
+  revalidatePath("/"); // Using On-demand Caching
 
   redirect('/');
 }
@@ -69,6 +72,7 @@ export const deleteSnippet = async(id:number) =>{
 
     // throw new Error(" OOPS something went wrong."); //throw manually error when connection failed to db so do comment the snippet.create code.
 
+    revalidatePath("/"); // Using On-demand Caching
 
     } catch(error: unknown){
       if(error instanceof Error){

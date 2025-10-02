@@ -5,7 +5,7 @@ import { INSPECT_MAX_BYTES } from "buffer";
 import Link from "next/link";
 
 // Now Disabling the caching feature --> make dynamic route
-export const dynamic = "force-dynamic" // disable caching
+// export const dynamic = "force-dynamic" // disable caching
 // export const revalidate = 0 // same works as above line
 
 export default async function Home() {
